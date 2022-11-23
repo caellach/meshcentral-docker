@@ -6,7 +6,7 @@ FROM node:lts-slim
 ARG DEBIAN_FRONTEND=noninteractive
 
 #install dependencies
-RUN apt-get update && apt-get install -y wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-debian11-x86_64-100.6.1.deb && apt-get install ./mongodb-database-tools-debian11-x86_64-100.6.1.deb && rm ./mongodb-database-tools-debian11-x86_64-100.6.1.deb && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y wget && https://fastdl.mongodb.org/tools/db/mongodb-database-tools-debian11-x86_64-100.6.1.deb && apt-get install ./mongodb-database-tools-debian11-x86_64-100.6.1.deb && rm ./mongodb-database-tools-debian11-x86_64-100.6.1.deb && rm -rf /var/lib/apt/lists/*
 
 #Add non-root user, add installation directories and assign proper permissions
 RUN mkdir -p /opt/meshcentral
