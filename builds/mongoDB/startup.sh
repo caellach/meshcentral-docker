@@ -19,6 +19,7 @@ if [ -f "meshcentral-data/config.json" ]
         sed -i "s/\"NewAccounts\": true/\"NewAccounts\": \"$ALLOW_NEW_ACCOUNTS\"/" meshcentral-data/config.json
         sed -i "s/\"WebRTC\": false/\"WebRTC\": \"$WEBRTC\"/" meshcentral-data/config.json
         sed -i "s/\"AllowFraming\": false/\"AllowFraming\": \"$IFRAME\"/" meshcentral-data/config.json
+        sed -i "s/\"mongodb\": \"mongodb://mongodb:27017/mesh\"/\"mongodb\": \"mongodb://$MONGO_HOSTNAME:27017/mesh\"/" meshcentral-data/config.json
         if [ "$REVERSE_PROXY" != "false" ]
             then 
                 sed -i "s/\"_certUrl\": \"my\.reverse\.proxy\"/\"certUrl\": \"https:\/\/$REVERSE_PROXY:$REVERSE_PROXY_TLS_PORT\"/" meshcentral-data/config.json
